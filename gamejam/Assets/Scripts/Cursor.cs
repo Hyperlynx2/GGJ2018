@@ -53,7 +53,8 @@ public class Cursor: MonoBehaviour
             newY++;
         }
 
-        if (newX != transform.position.x || newY != transform.position.y)
+        if (m_tileManager.isTileInPlay(newX, newY)
+        && (newX != transform.position.x || newY != transform.position.y))
         {
             transform.position = new Vector3((float)Math.Round(newX),
                                                 (float)Math.Round(newY),
@@ -88,6 +89,9 @@ public class Cursor: MonoBehaviour
         if (m_tileManager.isEmpty(transform.position))
         {
             GameObject newPipe = Instantiate(m_pipeSelection.getChoice(pipeChoiceIndex));
+            if (newPipe == null)
+                throw new UnityException("Missing pipe prefab for choice " + pipeChoiceIndex);
+
             newPipe.transform.position = transform.position;
 
             m_pipeSelection.newChoice(pipeChoiceIndex);

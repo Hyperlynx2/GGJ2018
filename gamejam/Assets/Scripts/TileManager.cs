@@ -49,4 +49,14 @@ public class TileManager : MonoBehaviour
                        (int)System.Math.Round(position.y)) == null;
     }
 
+    // Helper function. Is this space in play?
+    public bool isTileInPlay(int x, int y)
+    {
+        return x >= 0 && x <= width && y >= 0 && y <= height;
+    }
+
+    public bool isTileInPlay(float x, float y)
+    {
+        return isTileInPlay((int)System.Math.Round(x), (int)System.Math.Round(y));
+    }
 }
