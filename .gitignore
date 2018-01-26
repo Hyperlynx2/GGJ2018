@@ -1,7 +1,6 @@
 *.csproj
 *.sln
 *.userprefs
-*.meta
 /gamejam/.vs
 /gamejam/Library
 /gamejam/Temp
