@@ -16,13 +16,13 @@ public class Cursor: MonoBehaviour
     public string selectPipe3Button;
     public string selectPipe4Button;
 
-    private PipeSelection pipeSelection;
+    private PipeSelection m_pipeSelection;
     private TileManager m_tileManager;
 
     void Start ()
     {
-        pipeSelection = GetComponent<PipeSelection>();
-        if (pipeSelection == null)
+        m_pipeSelection = GetComponent<PipeSelection>();
+        if (m_pipeSelection == null)
             throw new UnityException("Missing PipeSelection on this object!");
 
         m_tileManager =  GameObject.FindObjectOfType<TileManager>();
@@ -87,10 +87,10 @@ public class Cursor: MonoBehaviour
     {
         if (m_tileManager.isEmpty(transform.position))
         {
-            GameObject newPipe = Instantiate(pipeSelection.getChoice(pipeChoiceIndex));
+            GameObject newPipe = Instantiate(m_pipeSelection.getChoice(pipeChoiceIndex));
             newPipe.transform.position = transform.position;
 
-            pipeSelection.newChoice(pipeChoiceIndex);
+            m_pipeSelection.newChoice(pipeChoiceIndex);
         }
     }
 
