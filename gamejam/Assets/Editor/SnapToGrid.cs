@@ -16,7 +16,10 @@ public class SnapToGrid : ScriptableWizard {
         GameObject[] go = GameObject.FindObjectsOfType<GameObject>();
         foreach(GameObject g in go)
         {
-            g.transform.position = new Vector3(Mathf.Round(g.transform.position.x), Mathf.Round(g.transform.position.y), 0); 
+            if (g.layer == LayerMask.NameToLayer("Tiles"))
+            {
+                g.transform.position = new Vector3(Mathf.Round(g.transform.position.x), Mathf.Round(g.transform.position.y), 0);
+            }         
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class waterSource : Tile {
+public class WaterSource : Tile {
 
     //Public variables
     public int timeTilStart;

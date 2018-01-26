@@ -10,11 +10,17 @@ public class TileManager : MonoBehaviour {
     //Private variables
     private List<Tile> tileList;
 
+    //gets a tile from the tile from the list by x and y coords
     public Tile getTile(int x, int y)
     {
-        return tileList[y * width + x];
+        if(x >= 0 && x < width && y >= 0 && y < height)
+        {
+            return tileList[y * width + x];
+        }
+        return null;
     }
 
+    //Puts a tile in the list based on x and y coords
     public void setTile(Tile tile, int x, int y)
     {
         if(tileList == null)

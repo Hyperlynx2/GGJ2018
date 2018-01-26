@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4868590883454040}
   - component: {fileID: 212089053079095426}
   - component: {fileID: 114001347573594406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StraightPipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,8 +35,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1862573646799318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: -5.81, y: 0.76, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,10 +53,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TIMETOFILL: 2
-  up: 1
-  down: 1
-  left: 0
-  right: 0
+  up: 0
+  down: 0
+  left: 1
+  right: 1
 --- !u!212 &212089053079095426
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: a6b511fadaa559b47bcc516285411bd1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

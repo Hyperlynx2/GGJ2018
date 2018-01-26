@@ -14,12 +14,15 @@ public abstract class Tile : MonoBehaviour
     //Private variables
     protected int x, y;
     protected TileManager tileManager;
+    protected ScoreManager scoreManager;
 
     void Start()
     {
+        //Calculate the position of the tile as an integer
         x = (int)Math.Round(this.transform.position.x);
         y = (int)Math.Round(this.transform.position.y);
-        tileManager = GameObject.FindObjectOfType<TileManager>();
+        tileManager = GameObject.FindObjectOfType<TileManager>();       //Store the TileManager as a variable
+        scoreManager = GameObject.FindObjectOfType<ScoreManager>();     //Store the scoreManager as a variable
         startTile();
         tileManager.setTile(this, x, y);
     }
@@ -29,29 +32,49 @@ public abstract class Tile : MonoBehaviour
         updateTile();
     }
 
+    public virtual void rotateLeft()
+    {
+    }
+
+    public virtual void rotateRight()
+    {
+    }
+
     protected void propogateWater()
     {
         Tile nextTile;
 
         if(up)
         {
-            nextTile = tileManager.getTile(x, y - 1);
-            nextTile.startFilling();
+            nextTile = tileManager.getTile(x, y + 1);
+            if(nextTile != null)
+            {
+                nextTile.startFilling();
+            }
         }
         if(down)
         {
-            nextTile = tileManager.getTile(x, y + 1);
-            nextTile.startFilling();
+            nextTile = tileManager.getTile(x, y - 1);
+            if (nextTile != null)
+            {
+                nextTile.startFilling();
+            }
         }
         if (left)
         {
             nextTile = tileManager.getTile(x - 1, y);
-            nextTile.startFilling();
+            if (nextTile != null)
+            {
+                nextTile.startFilling();
+            }
         }
         if (right)
         {
             nextTile = tileManager.getTile(x + 1, y);
-            nextTile.startFilling();
+            if (nextTile != null)
+            {
+                nextTile.startFilling();
+            }
         }
     }
 

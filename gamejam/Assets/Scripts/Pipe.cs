@@ -12,7 +12,6 @@ public class Pipe : Tile {
     // Use this for initialization
     public override void startTile ()
     {
-        Debug.Log(hasWater);
         hasWater = false;
         waterPercentage = 0;
 	}
@@ -22,7 +21,6 @@ public class Pipe : Tile {
     {
         if (waterPercentage < 1)
         {
-            //Debug.Log(hasWater);
             if (hasWater)
             { 
                 waterPercentage += Time.deltaTime / (float)TIMETOFILL;
@@ -30,14 +28,32 @@ public class Pipe : Tile {
             }
             if(waterPercentage >= 1)
             {
+                this.GetComponent<SpriteRenderer>().material.color = Color.blue;
                 propogateWater();
             }
         }
 	}
 
+    public override void rotateLeft()
+    {
+        bool tempUp = up;
+        up = right;
+        right = down;
+        down = left;
+        left = tempUp;
+    }
+
+    public override void rotateRight()
+    {
+        bool tempUp = up;
+        up = left;
+        left = down;
+        down = right;
+        right = tempUp;
+    }
+
     public override void startFilling()
     {
-        Debug.Log("pipe starting");
         hasWater = true;
     }
 }
