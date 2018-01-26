@@ -3,22 +3,29 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
+// One of these per player.
 public class Cursor: MonoBehaviour
 {
     // Set per player. Used to tell what inputs to get.
     public string horizontalAxis;
     public string verticalAxis;
-
-    //TODO: ABXY buttons
+    public string selectPipe1Button;
+    public string selectPipe2Button;
+    public string selectPipe3Button;
+    public string selectPipe4Button;
 
     // Seconds between accepting input.
     public float inputDelay;
 
     private float inputDelayRemaining = 0;
-    
+
+    private PipeSelection pipeSelection;
+
 	void Start ()
     {
-		
+        pipeSelection = GetComponent<PipeSelection>();
+        if (pipeSelection == null)
+            throw new UnityException("Missing PipeSelection on this object!");
 	}
 	
 	void Update ()
@@ -52,9 +59,27 @@ public class Cursor: MonoBehaviour
 
             if (newX != transform.position.x || newY != transform.position.y)
             {
-                Debug.Log(newX + ", " + newY);
                 inputDelayRemaining = inputDelay;
-                transform.position = new Vector3(newX, newY, transform.position.z);
+                transform.position = new Vector3((float)Math.Round(newX),
+                                                 (float)Math.Round(newY),
+                                                 transform.position.z);
+            }
+
+            if (Input.GetButton(selectPipe1Button))
+            {
+                checkAndPlacePipe(0);
+            }
+            else if (Input.GetButton(selectPipe2Button))
+            {
+                checkAndPlacePipe(1);
+            }
+            else if (Input.GetButton(selectPipe3Button))
+            {
+                checkAndPlacePipe(2);
+            }
+            else if (Input.GetButton(selectPipe4Button))
+            {
+                checkAndPlacePipe(3);
             }
 
             //TODO: ask the tile manager and only move to a spot if there's actually something there
@@ -62,4 +87,22 @@ public class Cursor: MonoBehaviour
         }
 
     }
+
+    // If the current position isn't occupied, place this pipe in the current location and generate
+    // a new choice.
+    private void checkAndPlacePipe(int pipeChoiceIndex)
+    {
+        TileManager tileManager = GameObject.FindObjectOfType<TileManager>();
+        if (tileManager.isEmpty(transform.position))
+        {
+            GameObject newPipe = Instantiate(pipeSelection.getChoice(pipeChoiceIndex));
+            newPipe.transform.position = transform.position;
+
+            pipeSelection.newChoice(pipeChoiceIndex);
+
+            inputDelayRemaining = inputDelay;
+        }
+    }
+
 }
+
