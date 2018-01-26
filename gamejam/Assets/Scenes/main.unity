@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 948591724}
   - component: {fileID: 948591723}
   - component: {fileID: 948591722}
+  - component: {fileID: 948591725}
   m_Layer: 0
   m_Name: Player1Cursor
   m_TagString: Untagged
@@ -121,7 +122,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalAxis: Player1Horizontal
   verticalAxis: Player1Vertical
-  inputDelay: 0.5
+  selectPipe1Button: Player1Pipe1
+  selectPipe2Button: Player1Pipe2
+  selectPipe3Button: Player1Pipe3
+  selectPipe4Button: Player1Pipe4
+  inputDelay: 0.25
 --- !u!212 &948591723
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -170,6 +175,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &948591725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 948591721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a21b20f7b4afae4795e6795f1b4460f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pipePrefabs:
+  - {fileID: 1862573646799318, guid: 79f73c90bf22de84583e33ca72b942f8, type: 2}
 --- !u!1 &1420380373
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,9 +299,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1925194433}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 224dd8ad7d1f02a40a4f4fac2cff0db6, type: 3}
+  m_Script: {fileID: 11500000, guid: d23c022789afb0d4387b41e84c736acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  width: 10
+  height: 10
 --- !u!4 &1925194435
 Transform:
   m_ObjectHideFlags: 0
