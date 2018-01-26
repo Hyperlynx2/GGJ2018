@@ -28,6 +28,8 @@ public class TileManager : MonoBehaviour
     public Tile getTile(int x, int y)
     {
         init();
+        if (!isTileInPlay(x, y))
+          throw new UnityException(x + "," + y + " is out of bounds!");
         return tileList[y * width + x];
     }
 
