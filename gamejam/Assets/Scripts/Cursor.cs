@@ -17,13 +17,18 @@ public class Cursor: MonoBehaviour
     public string selectPipe4Button;
 
     private PipeSelection pipeSelection;
+    private TileManager m_tileManager;
 
     void Start ()
     {
         pipeSelection = GetComponent<PipeSelection>();
         if (pipeSelection == null)
             throw new UnityException("Missing PipeSelection on this object!");
-	}
+
+        m_tileManager =  GameObject.FindObjectOfType<TileManager>();
+        if(m_tileManager == null)
+            throw new UnityException("Missing TileManager!");
+    }
 	
 	void Update ()
     {        
@@ -80,8 +85,7 @@ public class Cursor: MonoBehaviour
     // a new choice.
     private void checkAndPlacePipe(int pipeChoiceIndex)
     {
-        TileManager tileManager = GameObject.FindObjectOfType<TileManager>();
-        if (tileManager.isEmpty(transform.position))
+        if (m_tileManager.isEmpty(transform.position))
         {
             GameObject newPipe = Instantiate(pipeSelection.getChoice(pipeChoiceIndex));
             newPipe.transform.position = transform.position;
