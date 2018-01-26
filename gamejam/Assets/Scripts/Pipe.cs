@@ -12,6 +12,7 @@ public class Pipe : Tile {
     // Use this for initialization
     public override void startTile ()
     {
+        Debug.Log(hasWater);
         hasWater = false;
         waterPercentage = 0;
 	}
@@ -21,7 +22,7 @@ public class Pipe : Tile {
     {
         if (waterPercentage < 1)
         {
-            Debug.Log(hasWater);
+            //Debug.Log(hasWater);
             if (hasWater)
             { 
                 waterPercentage += Time.deltaTime / (float)TIMETOFILL;

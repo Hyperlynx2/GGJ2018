@@ -20,8 +20,8 @@ public abstract class Tile : MonoBehaviour
         x = (int)Math.Round(this.transform.position.x);
         y = (int)Math.Round(this.transform.position.y);
         tileManager = GameObject.FindObjectOfType<TileManager>();
-        tileManager.setTile(this, x, y);
         startTile();
+        tileManager.setTile(this, x, y);
     }
 
     void Update()
