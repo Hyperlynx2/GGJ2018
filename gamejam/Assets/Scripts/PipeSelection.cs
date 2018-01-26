@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // This is the thing that drives which pipes are available for a player to choose from. You have one of these per player.
 public class PipeSelection : MonoBehaviour
 {
     // Choose from these:
     public GameObject[]  pipePrefabs;
+    public GameObject[] pipeSprites;
 
     // Picked with the choice1 button, choice2 button, etc. private so you don't edit it in the editor by accident.
     private GameObject[] choice = new GameObject[4];
@@ -19,7 +21,10 @@ public class PipeSelection : MonoBehaviour
     public void newChoice(int choiceIndex)
     {
         choice[choiceIndex] = pipePrefabs[random.Next(0, pipePrefabs.Length - 1)];
+        pipeSprites[choiceIndex].GetComponent<Image>().sprite = choice[choiceIndex].gameObject.GetComponent<SpriteRenderer>().sprite;
+        pipeSprites[choiceIndex].transform.rotation = choice[choiceIndex].transform.rotation;
     }
+
 
     private System.Random random;
 
