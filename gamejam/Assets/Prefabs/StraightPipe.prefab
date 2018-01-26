@@ -49,12 +49,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1862573646799318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfc7c6c87adb3ba4590f898f9189fac1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dce0b29386a30140884768d6d54bc3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TIMETOFILL: 2
-  up: 1
-  down: 1
+  TIMETOFILL: 0
+  up: 0
+  down: 0
   left: 0
   right: 0
 --- !u!212 &212089053079095426
