@@ -10,21 +10,30 @@ public class TileManager : MonoBehaviour
     //Private variables
     private List<Tile> tileList;
 
+
+    //allows initializing on first use, as late as possible.
+    private void init()
+    {
+        if (tileList == null)
+        {
+            tileList = new List<Tile>(width * height);
+            for (int i = 0; i < width * height; i++)
+            {
+                tileList.Add(null);
+            }
+        }
+    }
+
+
     public Tile getTile(int x, int y)
     {
+        init();
         return tileList[y * width + x];
     }
 
     public void setTile(Tile tile, int x, int y)
     {
-        if(tileList == null)
-        {
-            tileList = new List<Tile>(width * height);
-            for(int i = 0; i < width*height; i++)
-            {
-                tileList.Add(null);
-            }
-        }
+        init();
         tileList[y * width + x] = tile;
         if(y == 0 && x == 0)
         {
