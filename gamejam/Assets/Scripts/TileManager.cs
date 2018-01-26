@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileManager : MonoBehaviour {
-
+public class TileManager : MonoBehaviour
+{
     //public variables
     public int width, height;
 
@@ -30,6 +30,14 @@ public class TileManager : MonoBehaviour {
         {
             tileList[0].startFilling();
         }
+    }
+
+    // Anything in this position?
+    public bool isEmpty(Vector3 position)
+    {
+        //just in case we change to having actual tiles that are blank, to shape the level.
+        return getTile((int)System.Math.Round(position.x),
+                       (int)System.Math.Round(position.y)) == null;
     }
 
 }
