@@ -19,16 +19,16 @@ public class Cursor: MonoBehaviour
     public string verticalAxis;
     public float inputDelayTime;
 
-    private float inputDelayX;   //Variable used to ensure joystick inputs don't scroll crazy fast
-    private float inputDelayY;
+    private float stickDelayX;   //Variable used to ensure joystick inputs don't scroll crazy fast
+    private float stickDelayY;
 
     private PipeSelection m_pipeSelection;
     private TileManager m_tileManager;
 
     void Start ()
     {
-        inputDelayX = 0;
-        inputDelayY = 0;
+        stickDelayX = 0;
+        stickDelayY = 0;
 
         m_pipeSelection = GetComponent<PipeSelection>();
         if (m_pipeSelection == null)
@@ -44,17 +44,31 @@ public class Cursor: MonoBehaviour
         float newX = transform.position.x;
         float newY = transform.position.y;
 
-        inputDelayX -= Time.deltaTime;
-        inputDelayY -= Time.deltaTime;
+        stickDelayX -= Time.deltaTime;
+        stickDelayY -= Time.deltaTime;
 
-        //Button Inputs
-      /*  if (Input.GetButtonDown(leftButton))
+        //Axis Inputs
+        //Horizontal movement
+        if (Input.GetButtonDown(leftButton))
         {
             newX--;
         }
         else if (Input.GetButtonDown(rightButton))
         {
             newX++;
+        }
+        else if (stickDelayX <= 0)
+        {
+            if (Input.GetAxis(horizontalAxis) > 0)
+            {
+                newX++;
+                stickDelayX = inputDelayTime;
+            }
+            else if (Input.GetAxis(horizontalAxis) < 0)
+            {
+                newX--;
+                stickDelayX = inputDelayTime;
+            }
         }
 
         if (Input.GetButtonDown(downButton))
@@ -65,34 +79,18 @@ public class Cursor: MonoBehaviour
         {
             newY++;
         }
-        */
-        //Axis Inputs
-        //Horizontal movement
-        if (inputDelayX <= 0)
-        {
-            if (Input.GetAxis(horizontalAxis) > 0)
-            {
-                newX++;
-                inputDelayX = inputDelayTime;
-            }
-            else if (Input.GetAxis(horizontalAxis) < 0)
-            {
-                newX--;
-                inputDelayX = inputDelayTime;
-            }
-        }
-        if(inputDelayY <= 0)
+        else if (stickDelayY <= 0)
         { 
             //Vertical movement
             if (Input.GetAxis(verticalAxis) > 0)
             {
                 newY++;
-                inputDelayY = inputDelayTime;
+                stickDelayY = inputDelayTime;
             }
             else if (Input.GetAxis(verticalAxis) < 0)
             {
                 newY--;
-                inputDelayY = inputDelayTime;
+                stickDelayY = inputDelayTime;
             }
         }
 
