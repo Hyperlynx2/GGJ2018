@@ -48,7 +48,7 @@ public class Cursor: MonoBehaviour
         inputDelayY -= Time.deltaTime;
 
         //Button Inputs
-        if (Input.GetButtonDown(leftButton))
+      /*  if (Input.GetButtonDown(leftButton))
         {
             newX--;
         }
@@ -65,7 +65,7 @@ public class Cursor: MonoBehaviour
         {
             newY++;
         }
-
+        */
         //Axis Inputs
         //Horizontal movement
         if (inputDelayX <= 0)

@@ -18,7 +18,7 @@ public class SnapToGrid : ScriptableWizard {
         {
             if (g.layer == LayerMask.NameToLayer("Tiles"))
             {
-                g.transform.position = new Vector3(Mathf.Round(g.transform.position.x), Mathf.Round(g.transform.position.y), 0);
+                g.transform.position = new Vector3(Mathf.Round(g.transform.position.x), Mathf.Round(g.transform.position.y), g.transform.position.z);
             }         
         }
     }

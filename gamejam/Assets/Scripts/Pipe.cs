@@ -14,19 +14,46 @@ public class Pipe : Tile {
         hasBeenFilled = false;
         waterPercentage = 0;
 	}
-	
-	// Update is called once per frame
-	public override void updateTile ()
+
+    // Update is called once per frame
+    public override void updateTile()
     {
         Color pipeColor = new Color(1 - waterPercentage, 1 - waterPercentage, 1);
         this.GetComponent<SpriteRenderer>().material.color = pipeColor;
 
+       
+
+
         if (waterPercentage < 1 && waterPercentage > 0)
         {
-            if (hasBeenFilled)
+            //Check to see if there is no water in the source, in whcih case it needs to push the water.
+            if (upSource)
             {
-                propogateWater();
-
+                if (tileManager.getTile(x, y + 1).getWaterPercentage() <= 0.0f)
+                {
+                    propogateWater();
+                }
+            }
+            if (downSource)
+            {
+                if (tileManager.getTile(x, y - 1).getWaterPercentage() <= 0.0f)
+                {
+                    propogateWater();
+                }
+            }
+            if (leftSource)
+            {
+                if (tileManager.getTile(x - 1, y).getWaterPercentage() <= 0.0f)
+                {
+                    propogateWater();
+                }
+            }
+            if (rightSource)
+            {
+                if (tileManager.getTile(x + 1, y).getWaterPercentage() <= 0.0f)
+                {
+                    propogateWater();
+                }
             }
         }
         else if(waterPercentage >= 1)
