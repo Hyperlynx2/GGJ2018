@@ -32,24 +32,32 @@ public class Countdown : MonoBehaviour {
 
             if (timer <= 0)
             {
+                nextTime = -1;
                 this.GetComponent<Text>().text = "Start!";
-                nextTime--;
-            }
-            if (timer <= -1)
-            {
-                counting = false;
-            }
-            if (timer <= nextTime)
-            {
-                nextTime--;
-                this.transform.localScale = new Vector3(1, 1, 1);
-                this.GetComponent<Text>().text = (nextTime + 1).ToString();
+                if(timer > nextTime)
+                {
+                    this.transform.localScale = new Vector3(1.1f - ((timer - nextTime)/10), 1.1f - ((timer - nextTime)/10), 1);
+                    this.GetComponent<Text>().color = new Color(1, 0, 0, timer - nextTime);
+                }
+                if (timer <= -1)
+                {
+                    counting = false;
+                }
             }
             else
-            {
-                this.transform.localScale = new Vector3(2 - (timer - nextTime), 2 - (timer - nextTime), 1);
-                this.GetComponent<Text>().color = new Color(1, 0, 0, timer - nextTime);
-            }
+            {             
+                if (timer <= nextTime)
+                {
+                    nextTime--;
+                    this.transform.localScale = new Vector3(1, 1, 1);
+                    this.GetComponent<Text>().text = (nextTime + 1).ToString();
+                }
+                else
+                {
+                    this.transform.localScale = new Vector3(2 - (timer - nextTime), 2 - (timer - nextTime), 1);
+                    this.GetComponent<Text>().color = new Color(1, 0, 0, timer - nextTime);
+                }
+            }         
         }
 
 	}
