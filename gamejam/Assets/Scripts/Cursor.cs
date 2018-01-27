@@ -15,6 +15,8 @@ public class Cursor: MonoBehaviour
     public string selectPipe2Button;
     public string selectPipe3Button;
     public string selectPipe4Button;
+    public string horizontalAxis;
+    public string verticalAxis;
     public float inputDelayTime;
 
     private float inputDelayX;   //Variable used to ensure joystick inputs don't scroll crazy fast
@@ -68,12 +70,12 @@ public class Cursor: MonoBehaviour
         //Horizontal movement
         if (inputDelayX <= 0)
         {
-            if (Input.GetAxis("Player1Horizontal") > 0)
+            if (Input.GetAxis(horizontalAxis) > 0)
             {
                 newX++;
                 inputDelayX = inputDelayTime;
             }
-            else if (Input.GetAxis("Player1Horizontal") < 0)
+            else if (Input.GetAxis(horizontalAxis) < 0)
             {
                 newX--;
                 inputDelayX = inputDelayTime;
@@ -82,12 +84,12 @@ public class Cursor: MonoBehaviour
         if(inputDelayY <= 0)
         { 
             //Vertical movement
-            if (Input.GetAxis("Player1Vertical") > 0)
+            if (Input.GetAxis(verticalAxis) > 0)
             {
                 newY++;
                 inputDelayY = inputDelayTime;
             }
-            else if (Input.GetAxis("Player1Vertical") < 0)
+            else if (Input.GetAxis(verticalAxis) < 0)
             {
                 newY--;
                 inputDelayY = inputDelayTime;

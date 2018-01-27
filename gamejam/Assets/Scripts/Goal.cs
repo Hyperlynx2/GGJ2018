@@ -23,6 +23,7 @@ public class Goal : Tile {
     // Update is called once per frame
     public override void updateTile()
     {
+        Debug.Log(waterPercentage);
         if(waterPercentage > 0)
         {
             scoreManager.incrementScore(playerOne, waterPercentage);

@@ -20,7 +20,6 @@ public class WaterSource : Tile {
 	// Update is called once per frame
 	public override void updateTile ()
     {
-        Debug.Log(waterPercentage);
         countdownTimer -= Time.deltaTime;
         if (countdownTimer <= 0)
         {
