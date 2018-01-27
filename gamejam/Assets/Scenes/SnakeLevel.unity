@@ -1629,7 +1629,7 @@ Prefab:
     - target: {fileID: 114822278889263838, guid: 6b8e93f328d76bf468e2656daeed35f9,
         type: 2}
       propertyPath: down
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114822278889263838, guid: 6b8e93f328d76bf468e2656daeed35f9,
         type: 2}
@@ -2375,17 +2375,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipePrefabs:
-  - {fileID: 1312605197028518, guid: 0d6fb822d93600340aa5a25b84166d32, type: 2}
-  - {fileID: 1403479838196258, guid: a1aa86325691fff48a10bdb1e510708d, type: 2}
-  - {fileID: 1730366700911558, guid: 264fc8b9fb2b1574fb3325e6906c3147, type: 2}
-  - {fileID: 1077909824965474, guid: eb4839e8abecf5749847286805747b3e, type: 2}
-  - {fileID: 1225214131862006, guid: 8a895621be1a4f347b842d6d381c6ece, type: 2}
-  - {fileID: 1862573646799318, guid: f907561d20b039a4f9342f96157d85e9, type: 2}
-  - {fileID: 1640139815480570, guid: 054cce6ac5d334347ba09ae0beb8540c, type: 2}
-  - {fileID: 1205312729546170, guid: a319dde0a66e77b4f8a7598af1ba2eb8, type: 2}
-  - {fileID: 1957636016391342, guid: 6f5087bdec3fe5741b0b50f609ce226e, type: 2}
-  - {fileID: 1226837633544886, guid: 5d1e9b4e5a9b36c43a1369c907cd5905, type: 2}
-  - {fileID: 1732250022622340, guid: eb2570c5c431b694cbc8953d5d0d541d, type: 2}
+  - pipePrefab: {fileID: 1312605197028518, guid: 0d6fb822d93600340aa5a25b84166d32,
+      type: 2}
+    spawnChance: 1
+  - pipePrefab: {fileID: 1403479838196258, guid: a1aa86325691fff48a10bdb1e510708d,
+      type: 2}
+    spawnChance: 10
+  - pipePrefab: {fileID: 1730366700911558, guid: 264fc8b9fb2b1574fb3325e6906c3147,
+      type: 2}
+    spawnChance: 10
+  - pipePrefab: {fileID: 1077909824965474, guid: eb4839e8abecf5749847286805747b3e,
+      type: 2}
+    spawnChance: 10
+  - pipePrefab: {fileID: 1225214131862006, guid: 8a895621be1a4f347b842d6d381c6ece,
+      type: 2}
+    spawnChance: 10
+  - pipePrefab: {fileID: 1862573646799318, guid: f907561d20b039a4f9342f96157d85e9,
+      type: 2}
+    spawnChance: 10
+  - pipePrefab: {fileID: 1640139815480570, guid: 054cce6ac5d334347ba09ae0beb8540c,
+      type: 2}
+    spawnChance: 10
+  - pipePrefab: {fileID: 1205312729546170, guid: a319dde0a66e77b4f8a7598af1ba2eb8,
+      type: 2}
+    spawnChance: 3
+  - pipePrefab: {fileID: 1957636016391342, guid: 6f5087bdec3fe5741b0b50f609ce226e,
+      type: 2}
+    spawnChance: 3
+  - pipePrefab: {fileID: 1226837633544886, guid: 5d1e9b4e5a9b36c43a1369c907cd5905,
+      type: 2}
+    spawnChance: 3
+  - pipePrefab: {fileID: 1732250022622340, guid: eb2570c5c431b694cbc8953d5d0d541d,
+      type: 2}
+    spawnChance: 3
   pipeSprites:
   - {fileID: 621748310}
   - {fileID: 268473930}
@@ -5429,17 +5451,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipePrefabs:
-  - {fileID: 1312605197028518, guid: 0d6fb822d93600340aa5a25b84166d32, type: 2}
-  - {fileID: 1403479838196258, guid: a1aa86325691fff48a10bdb1e510708d, type: 2}
-  - {fileID: 1730366700911558, guid: 264fc8b9fb2b1574fb3325e6906c3147, type: 2}
-  - {fileID: 1077909824965474, guid: eb4839e8abecf5749847286805747b3e, type: 2}
-  - {fileID: 1225214131862006, guid: 8a895621be1a4f347b842d6d381c6ece, type: 2}
-  - {fileID: 1862573646799318, guid: f907561d20b039a4f9342f96157d85e9, type: 2}
-  - {fileID: 1640139815480570, guid: 054cce6ac5d334347ba09ae0beb8540c, type: 2}
-  - {fileID: 1205312729546170, guid: a319dde0a66e77b4f8a7598af1ba2eb8, type: 2}
-  - {fileID: 1957636016391342, guid: 6f5087bdec3fe5741b0b50f609ce226e, type: 2}
-  - {fileID: 1226837633544886, guid: 5d1e9b4e5a9b36c43a1369c907cd5905, type: 2}
-  - {fileID: 1732250022622340, guid: eb2570c5c431b694cbc8953d5d0d541d, type: 2}
+  - pipePrefab: {fileID: 1312605197028518, guid: 0d6fb822d93600340aa5a25b84166d32,
+      type: 2}
+    spawnChance: 1
+  - pipePrefab: {fileID: 1403479838196258, guid: a1aa86325691fff48a10bdb1e510708d,
+      type: 2}
+    spawnChance: 10
+  - pipePrefab: {fileID: 1730366700911558, guid: 264fc8b9fb2b1574fb3325e6906c3147,
+      type: 2}
+    spawnChance: 10
+  - pipePrefab: {fileID: 1077909824965474, guid: eb4839e8abecf5749847286805747b3e,
+      type: 2}
+    spawnChance: 10
+  - pipePrefab: {fileID: 1225214131862006, guid: 8a895621be1a4f347b842d6d381c6ece,
+      type: 2}
+    spawnChance: 10
+  - pipePrefab: {fileID: 1862573646799318, guid: f907561d20b039a4f9342f96157d85e9,
+      type: 2}
+    spawnChance: 10
+  - pipePrefab: {fileID: 1640139815480570, guid: 054cce6ac5d334347ba09ae0beb8540c,
+      type: 2}
+    spawnChance: 10
+  - pipePrefab: {fileID: 1205312729546170, guid: a319dde0a66e77b4f8a7598af1ba2eb8,
+      type: 2}
+    spawnChance: 3
+  - pipePrefab: {fileID: 1957636016391342, guid: 6f5087bdec3fe5741b0b50f609ce226e,
+      type: 2}
+    spawnChance: 3
+  - pipePrefab: {fileID: 1226837633544886, guid: 5d1e9b4e5a9b36c43a1369c907cd5905,
+      type: 2}
+    spawnChance: 3
+  - pipePrefab: {fileID: 1732250022622340, guid: eb2570c5c431b694cbc8953d5d0d541d,
+      type: 2}
+    spawnChance: 3
   pipeSprites:
   - {fileID: 950450211}
   - {fileID: 2116544183}
