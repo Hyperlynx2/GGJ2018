@@ -52,11 +52,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6712626b87d4dcb428c0fe6ed964ab99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TIMETOFILL: 0
-  up: 0
-  down: 0
-  left: 0
-  right: 0
+  flowRate: 0
+  up: 1
+  down: 1
+  left: 1
+  right: 1
+  upSource: 0
+  downSource: 0
+  leftSource: 0
+  rightSource: 0
   playerOne: 1
 --- !u!212 &212752634395869808
 SpriteRenderer:

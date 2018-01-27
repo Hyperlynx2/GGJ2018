@@ -64,6 +64,11 @@ public abstract class Tile : MonoBehaviour
         waterPercentage += water;
     }
 
+    public float getWaterPercentage()
+    {
+        return waterPercentage;
+    }
+
     public void setSource(Direction dir)
     {
         switch(dir)
@@ -94,9 +99,13 @@ public abstract class Tile : MonoBehaviour
                 //Check that the tile faces the right direction
                 if (tile.getPipeDir(Direction.down))
                 {
-                    tile.setSource(Direction.down);
-                    exitCount++;
-                    nextTiles.Add(tile);
+                    //Check that the pipe isnt full of water
+                    if(tile.getWaterPercentage() < 1)
+                    {
+                        tile.setSource(Direction.down);
+                        exitCount++;
+                        nextTiles.Add(tile);
+                    }
                 }
             }
         }
@@ -107,9 +116,12 @@ public abstract class Tile : MonoBehaviour
             {
                 if (tile.getPipeDir(Direction.up))
                 {
-                    tile.setSource(Direction.up);
-                    exitCount++;
-                    nextTiles.Add(tile);
+                    if (tile.getWaterPercentage() < 1)
+                    {
+                        tile.setSource(Direction.up);
+                        exitCount++;
+                        nextTiles.Add(tile);
+                    }
                 }
             }
         }
@@ -120,9 +132,12 @@ public abstract class Tile : MonoBehaviour
             {
                 if (tile.getPipeDir(Direction.right))
                 {
-                    tile.setSource(Direction.right);
-                    exitCount++;
-                    nextTiles.Add(tile);
+                    if (tile.getWaterPercentage() < 1)
+                    {
+                        tile.setSource(Direction.right);
+                        exitCount++;
+                        nextTiles.Add(tile);
+                    }
                 }
             }
         }
@@ -133,9 +148,12 @@ public abstract class Tile : MonoBehaviour
             {
                 if (tile.getPipeDir(Direction.left))
                 {
-                    tile.setSource(Direction.left);
-                    exitCount++;
-                    nextTiles.Add(tile);
+                    if (tile.getWaterPercentage() < 1)
+                    {
+                        tile.setSource(Direction.left);
+                        exitCount++;
+                        nextTiles.Add(tile);
+                    }
                 }
             }
         }

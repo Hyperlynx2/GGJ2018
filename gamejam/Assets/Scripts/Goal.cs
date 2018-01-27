@@ -23,13 +23,17 @@ public class Goal : Tile {
     // Update is called once per frame
     public override void updateTile()
     {
-
+        if(waterPercentage > 0)
+        {
+            scoreManager.incrementScore(playerOne, waterPercentage);
+            waterPercentage = 0;
+        }
     }
 
     public override void startFilling()
     {
         //Increment the score of the owner of the goal.
-        scoreManager.incrementScore(playerOne);
+       
     }
 }
 

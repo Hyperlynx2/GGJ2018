@@ -21,7 +21,7 @@ public class Pipe : Tile {
         Color pipeColor = new Color(1 - waterPercentage, 1 - waterPercentage, 1);
         this.GetComponent<SpriteRenderer>().material.color = pipeColor;
 
-        if (waterPercentage < 1)
+        if (waterPercentage < 1 && waterPercentage > 0)
         {
             if (hasBeenFilled)
             {
@@ -29,15 +29,10 @@ public class Pipe : Tile {
 
             }
         }
-        else
+        else if(waterPercentage >= 1)
         {
             hasBeenFilled = true;
             propogateWater();
-        }
-
-        if(waterPercentage <= 0)
-        {
-            hasBeenFilled = false;
         }
     }
 

@@ -54,9 +54,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowRate: 0.01
   up: 1
-  down: 0
-  left: 1
-  right: 1
+  down: 1
+  left: 0
+  right: 0
   upSource: 0
   downSource: 0
   leftSource: 0

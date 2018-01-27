@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour {
 
-    private int playerOneScore;
-    private int playerTwoScore;
+    private float playerOneScore;
+    private float playerTwoScore;
 
 	// Use this for initialization
 	void Start () {
@@ -18,17 +18,15 @@ public class ScoreManager : MonoBehaviour {
 	}
 
     //Increments the score by passing a bool to indicate whether the score is for player one.
-    public void incrementScore(bool isPlayerOne)
+    public void incrementScore(bool isPlayerOne, float scoreIncrement)
     {
         if(isPlayerOne)
         {
-            playerOneScore++;
-            Debug.Log("Player One Wins!!");
+            playerOneScore += scoreIncrement;
         }
         else
         {
-            playerTwoScore++;
-            Debug.Log("Player Two Wins!!");
+            playerTwoScore += scoreIncrement;
         }
     }
 
