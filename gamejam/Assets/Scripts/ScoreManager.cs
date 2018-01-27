@@ -5,9 +5,16 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
 
+    enum GameState
+    {
+        countdown, gameInProgress, tallyingScores, gameOver
+    }
+
     public GameObject Player1Water;
     public GameObject Player2Water;
+
     private TileManager tileManager;
+    private Countdown countdown;
 
     public GameObject p1Cursor;
     public GameObject p2Cursor;
@@ -16,11 +23,10 @@ public class ScoreManager : MonoBehaviour {
     private float playerTwoScore;
     private float lostWater;
     public float MAXSCORE;
-    private bool gameStarted;
-    private bool scoreLoop;
     private int displayScorep1;
     private int displayScorep2;
 
+    private GameState gameState;
     private float p1StartY;
     private RectTransform p1WaterTransform;
     private float p2StartY;
@@ -33,7 +39,8 @@ public class ScoreManager : MonoBehaviour {
         p2StartY = Player2Water.GetComponent<RectTransform>().position.y;
         p2WaterTransform = Player2Water.GetComponent<RectTransform>();
         lostWater = 0;
-        gameStarted = false;
+        gameState = GameState.countdown;
+        countdown = FindObjectOfType<Countdown>();
         tileManager = FindObjectOfType<TileManager>();
         if(tileManager == null)
         {
@@ -45,28 +52,27 @@ public class ScoreManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
-        if(!tileManager.stillFlowing())
+        switch(gameState)
         {
-            if (playerTwoScore > 0)
-            {
-                playerTwoScore -= 0.01f;
-                p2WaterTransform.localScale = new Vector3(1, 400.0f * playerTwoScore / 5.0f, 1);
-                p2WaterTransform.position = new Vector3(p2WaterTransform.position.x, p2StartY + p2WaterTransform.lossyScale.y / 2, 0);
-                displayScorep2 += 1;
-            }
-            if (playerOneScore > 0)
-            {
-                playerOneScore -= 0.01f;
-                p1WaterTransform.localScale = new Vector3(1, 400.0f * playerOneScore / 5.0f, 1);
-                p1WaterTransform.position = new Vector3(p1WaterTransform.position.x, p1StartY + p1WaterTransform.lossyScale.y / 2, 0);
-                displayScorep1 += 1;
-            }
-            if (playerOneScore <= 0 && playerTwoScore <= 0)
-            {
-                scoreLoop = false;
-            }
-        }
+            case GameState.countdown:
+                if (!countdown.stillCounting())
+                {
+                    gameState = GameState.gameInProgress;
+                }
+                break;
+            case GameState.gameInProgress:
+                if(!tileManager.stillFlowing())
+                {
+                    gameState = GameState.tallyingScores;
+                }
+                break;
+            case GameState.tallyingScores:
+                tallyScores();
+                break;
+            case GameState.gameOver:
+                //Who wins???
+                break;
+        }   
 	}
 
     //Increments the score by passing a bool to indicate whether the score is for player one.
@@ -87,25 +93,36 @@ public class ScoreManager : MonoBehaviour {
         }
     }
 
-    public bool getGameStarted()
-    {
-        return gameStarted;
-    }
-
     public void addLostWater(float waterLost)
     {
         lostWater += waterLost;
     }
 
-    public void endGame()
+    private void tallyScores()
     {
         //Stop the game
         p1Cursor.SetActive(false);
         p2Cursor.SetActive(false);
 
         //Calculate scores by draining the water
-        scoreLoop = true;
-       
+        if (playerTwoScore > 0)
+        {
+            playerTwoScore -= 0.01f;
+            p2WaterTransform.localScale = new Vector3(1, 400.0f * playerTwoScore / 5.0f, 1);
+            p2WaterTransform.position = new Vector3(p2WaterTransform.position.x, p2StartY + p2WaterTransform.lossyScale.y / 2, 0);
+            displayScorep2 += 1;
+        }
+        if (playerOneScore > 0)
+        {
+            playerOneScore -= 0.01f;
+            p1WaterTransform.localScale = new Vector3(1, 400.0f * playerOneScore / 5.0f, 1);
+            p1WaterTransform.position = new Vector3(p1WaterTransform.position.x, p1StartY + p1WaterTransform.lossyScale.y / 2, 0);
+            displayScorep1 += 1;
+        }
+        if (playerOneScore <= 0 && playerTwoScore <= 0)
+        {
+            gameState = GameState.gameOver;
+        }       
     }
 
 }

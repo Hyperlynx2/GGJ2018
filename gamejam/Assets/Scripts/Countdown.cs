@@ -61,4 +61,9 @@ public class Countdown : MonoBehaviour {
         }
 
 	}
+
+    public bool stillCounting()
+    {
+        return counting;
+    }
 }

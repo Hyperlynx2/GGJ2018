@@ -14,9 +14,11 @@ public class TileManager : MonoBehaviour
     {
         foreach(Tile t in tileList)
         {
-            if (t != null && t.isFlowing())
-                return true;
+            if (t != null && t is Pipe)
+                if(t.isFlowing())
+                    return true;
         }
+        Debug.Log("not flowing");
         return false;
     }
 
