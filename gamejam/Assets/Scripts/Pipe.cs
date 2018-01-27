@@ -6,13 +6,12 @@ using UnityEngine;
 public class Pipe : Tile {
 
     //Private variables
-    private bool hasWater;
-    private float waterPercentage;
+    private bool hasBeenFilled;
 
     // Use this for initialization
     public override void startTile ()
     {
-        hasWater = false;
+        hasBeenFilled = false;
         waterPercentage = 0;
 	}
 	
@@ -21,18 +20,25 @@ public class Pipe : Tile {
     {
         if (waterPercentage < 1)
         {
-            if (hasWater)
-            { 
-                waterPercentage += Time.deltaTime / (float)TIMETOFILL;
-                Debug.Log(waterPercentage);
-            }
-            if(waterPercentage >= 1)
+            if (hasBeenFilled)
             {
-                this.GetComponent<SpriteRenderer>().material.color = Color.blue;
                 propogateWater();
+
             }
         }
-	}
+        else
+        {
+            hasBeenFilled = true;
+            this.GetComponent<SpriteRenderer>().material.color = Color.blue;
+            propogateWater();
+        }
+
+        if(waterPercentage <= 0)
+        {
+            hasBeenFilled = false;
+            this.GetComponent<SpriteRenderer>().material.color = Color.white;
+        }
+    }
 
     public override void rotateLeft()
     {
@@ -54,6 +60,5 @@ public class Pipe : Tile {
 
     public override void startFilling()
     {
-        hasWater = true;
     }
 }

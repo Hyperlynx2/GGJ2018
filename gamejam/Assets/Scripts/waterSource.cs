@@ -14,15 +14,20 @@ public class WaterSource : Tile {
 	public override void startTile ()
     {
         countdownTimer = timeTilStart;
-	}
+        waterPercentage = 5;
+    }
 	
 	// Update is called once per frame
 	public override void updateTile ()
     {
+        Debug.Log(waterPercentage);
         countdownTimer -= Time.deltaTime;
         if (countdownTimer <= 0)
         {
-            propogateWater();
+            if(waterPercentage > 0)
+            {
+                propogateWater();
+            }
         }
 	}
 
