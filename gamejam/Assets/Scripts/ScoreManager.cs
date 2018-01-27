@@ -22,6 +22,10 @@ public class ScoreManager : MonoBehaviour {
     public GameObject p1ScoreText;
     public GameObject p2ScoreText;
 
+    public GameObject screenTint;
+
+    public GameObject winText;
+
     private float playerOneScore;
     private float playerTwoScore;
     private float lostWater;
@@ -34,6 +38,8 @@ public class ScoreManager : MonoBehaviour {
     private RectTransform p1WaterTransform;
     private float p2StartY;
     private RectTransform p2WaterTransform;
+
+    private float delayTimer;
 
     // Use this for initialization
     void Start () {
@@ -66,14 +72,24 @@ public class ScoreManager : MonoBehaviour {
             case GameState.gameInProgress:
                 if(!tileManager.stillFlowing())
                 {
-                    gameState = GameState.tallyingScores;
+                    if (delayTimer > 2)
+                    {
+                        delayTimer = 0;
+                        gameState = GameState.tallyingScores;
+                    }
+                    else
+                    {
+                        screenTint.GetComponent<Image>().color += new Color(0, 0, 0, 0.005f);
+                        delayTimer += Time.deltaTime;
+                    }
                 }
                 break;
             case GameState.tallyingScores:
-                tallyScores();
+                tallyScores();            
                 break;
             case GameState.gameOver:
                 //Who wins???
+                calculateWinner();
                 break;
         }   
 	}
@@ -128,7 +144,16 @@ public class ScoreManager : MonoBehaviour {
         }
         if (playerOneScore <= 0 && playerTwoScore <= 0)
         {
-            gameState = GameState.gameOver;
+            if(delayTimer > 2)
+            {
+                gameState = GameState.gameOver;
+                delayTimer = 0;
+            }
+            else
+            {
+                delayTimer += Time.deltaTime;
+            }
+
         }       
     }
 
@@ -137,10 +162,23 @@ public class ScoreManager : MonoBehaviour {
         if(displayScorep1 > displayScorep2)
         {
             //p1 wins
+            winText.SetActive(true);
+            winText.GetComponent<Text>().text = "PLAYER 1 WINS!";
+            if(p1ScoreText.transform.localScale.y < 2)
+            {
+                p1ScoreText.transform.localScale += new Vector3(0.05f, 0.05f, 0);
+            }
+
         }
         else if (displayScorep2 > displayScorep1)
         {
             //p2 wins
+            winText.SetActive(true);
+            winText.GetComponent<Text>().text = "PLAYER 2 WINS!";
+            if (p2ScoreText.transform.localScale.y < 2)
+            {
+                p2ScoreText.transform.localScale += new Vector3(0.05f, 0.05f, 0);
+            }
         }
         else
         {
