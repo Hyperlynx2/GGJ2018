@@ -19,6 +19,9 @@ public class ScoreManager : MonoBehaviour {
     public GameObject p1Cursor;
     public GameObject p2Cursor;
 
+    public GameObject p1ScoreText;
+    public GameObject p2ScoreText;
+
     private float playerOneScore;
     private float playerTwoScore;
     private float lostWater;
@@ -103,26 +106,46 @@ public class ScoreManager : MonoBehaviour {
         //Stop the game
         p1Cursor.SetActive(false);
         p2Cursor.SetActive(false);
+        p1ScoreText.SetActive(true);
+        p2ScoreText.SetActive(true);
 
         //Calculate scores by draining the water
         if (playerTwoScore > 0)
         {
-            playerTwoScore -= 0.01f;
+            playerTwoScore -= 0.005f;
             p2WaterTransform.localScale = new Vector3(1, 400.0f * playerTwoScore / 5.0f, 1);
             p2WaterTransform.position = new Vector3(p2WaterTransform.position.x, p2StartY + p2WaterTransform.lossyScale.y / 2, 0);
             displayScorep2 += 1;
+            p2ScoreText.GetComponent<Text>().text = displayScorep1.ToString();
         }
         if (playerOneScore > 0)
         {
-            playerOneScore -= 0.01f;
+            playerOneScore -= 0.005f;
             p1WaterTransform.localScale = new Vector3(1, 400.0f * playerOneScore / 5.0f, 1);
             p1WaterTransform.position = new Vector3(p1WaterTransform.position.x, p1StartY + p1WaterTransform.lossyScale.y / 2, 0);
             displayScorep1 += 1;
+            p1ScoreText.GetComponent<Text>().text = displayScorep1.ToString();
         }
         if (playerOneScore <= 0 && playerTwoScore <= 0)
         {
             gameState = GameState.gameOver;
         }       
+    }
+
+    private void calculateWinner()
+    {
+        if(displayScorep1 > displayScorep2)
+        {
+            //p1 wins
+        }
+        else if (displayScorep2 > displayScorep1)
+        {
+            //p2 wins
+        }
+        else
+        {
+            //Draw
+        }
     }
 
 }
