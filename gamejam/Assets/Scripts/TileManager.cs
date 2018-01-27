@@ -36,10 +36,17 @@ public class TileManager : MonoBehaviour
     public void setTile(Tile tile, int x, int y)
     {
         init();
-        tileList[y * width + x] = tile;
-        if(y == 0 && x == 0)
+        if (tileList[y * width + x] != null)
         {
-            tileList[0].startFilling();
+            if (tileList[y * width + x].GetComponents<BlankTile>() != null)
+            {
+                tileList[y * width + x] = null;
+                tileList[y * width + x] = tile;
+            }
+        }
+        else
+        {
+            tileList[y * width + x] = tile;
         }
     }
 
@@ -48,7 +55,7 @@ public class TileManager : MonoBehaviour
     {
         //just in case we change to having actual tiles that are blank, to shape the level.
         return getTile((int)System.Math.Round(position.x),
-                       (int)System.Math.Round(position.y)) == null;
+                       (int)System.Math.Round(position.y)) is BlankTile;
     }
 
     // Helper function. Is this space in play?
