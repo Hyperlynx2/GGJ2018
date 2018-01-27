@@ -11,7 +11,7 @@ public abstract class Tile : MonoBehaviour
     }
 
     //Constant
-    public int TIMETOFILL;
+    public float flowRate;
 
     //Public variables
     public bool up, down, left, right;          //Booleans for which directions the pipe leads.
@@ -34,7 +34,7 @@ public abstract class Tile : MonoBehaviour
         tileManager.setTile(this, x, y);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         updateTile();
     }
@@ -81,60 +81,73 @@ public abstract class Tile : MonoBehaviour
 
     protected void propogateWater()
     {
-        Tile nextTile;
+        List<Tile> nextTiles = new List<Tile>(4);
+        Tile tile;
 
-        if(up && !upSource)
+        //Calculate how many exits the water is flowing through
+        float exitCount = 0;
+        if (up && !upSource)
         {
-            nextTile = tileManager.getTile(x, y + 1);
-            if(nextTile != null)        //Check that the tile is not out of bounds
+            tile = tileManager.getTile(x, y + 1);
+            if (tile != null)        //Check that the tile is not out of bounds
             {
                 //Check that the tile faces the right direction
-                if(nextTile.getPipeDir(Direction.down))
+                if (tile.getPipeDir(Direction.down))
                 {
-                    nextTile.setSource(Direction.down);
-                    nextTile.addWater(0.01f);
-                    waterPercentage -= 0.01f;
+                    tile.setSource(Direction.down);
+                    exitCount++;
+                    nextTiles.Add(tile);
                 }
             }
         }
-        if(down && !downSource)
+        if (down && !downSource)
         {
-            nextTile = tileManager.getTile(x, y - 1);
-            if (nextTile != null)
+            tile = tileManager.getTile(x, y - 1);
+            if (tile != null)
             {
-                if (nextTile.getPipeDir(Direction.up))
+                if (tile.getPipeDir(Direction.up))
                 {
-                    nextTile.setSource(Direction.up);
-                    nextTile.addWater(0.01f);
-                    waterPercentage -= 0.01f;
+                    tile.setSource(Direction.up);
+                    exitCount++;
+                    nextTiles.Add(tile);
                 }
             }
         }
         if (left && !leftSource)
         {
-            nextTile = tileManager.getTile(x - 1, y);
-            if (nextTile != null)
+            tile = tileManager.getTile(x - 1, y);
+            if (tile != null)
             {
-                if (nextTile.getPipeDir(Direction.right))
+                if (tile.getPipeDir(Direction.right))
                 {
-                    nextTile.setSource(Direction.right);
-                    nextTile.addWater(0.01f);
-                    waterPercentage -= 0.01f;
+                    tile.setSource(Direction.right);
+                    exitCount++;
+                    nextTiles.Add(tile);
                 }
             }
         }
         if (right && !rightSource)
         {
-            nextTile = tileManager.getTile(x + 1, y);
-            if (nextTile != null)
+            tile = tileManager.getTile(x + 1, y);
+            if (tile != null)
             {
-                if (nextTile.getPipeDir(Direction.left))
+                if (tile.getPipeDir(Direction.left))
                 {
-                    nextTile.setSource(Direction.left);
-                    nextTile.addWater(0.01f);
-                    waterPercentage -= 0.01f;
+                    tile.setSource(Direction.left);
+                    exitCount++;
+                    nextTiles.Add(tile);
                 }
             }
+        }
+
+        //Calculate the flow to each pipe
+        float splitFlow = (flowRate / exitCount);
+
+        //Move the water to the exit pipes.
+        foreach(Tile t in nextTiles)
+        {
+            t.addWater(splitFlow);
+            waterPercentage -= splitFlow;
         }
     }
 

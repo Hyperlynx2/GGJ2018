@@ -18,6 +18,9 @@ public class Pipe : Tile {
 	// Update is called once per frame
 	public override void updateTile ()
     {
+        Color pipeColor = new Color(1 - waterPercentage, 1 - waterPercentage, 1);
+        this.GetComponent<SpriteRenderer>().material.color = pipeColor;
+
         if (waterPercentage < 1)
         {
             if (hasBeenFilled)
@@ -29,14 +32,12 @@ public class Pipe : Tile {
         else
         {
             hasBeenFilled = true;
-            this.GetComponent<SpriteRenderer>().material.color = Color.blue;
             propogateWater();
         }
 
         if(waterPercentage <= 0)
         {
             hasBeenFilled = false;
-            this.GetComponent<SpriteRenderer>().material.color = Color.white;
         }
     }
 

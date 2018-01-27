@@ -52,16 +52,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc8284675a5a2934e92c1fbd22587485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TIMETOFILL: 2
+  flowRate: 0.01
   up: 1
   down: 0
   left: 0
   right: 0
-  x: 0
-  y: 0
-  tileManager: {fileID: 0}
+  upSource: 0
+  downSource: 0
+  leftSource: 0
+  rightSource: 0
   timeTilStart: 5
-  countdownTimer: 0
 --- !u!212 &212037359687589812
 SpriteRenderer:
   m_ObjectHideFlags: 1
