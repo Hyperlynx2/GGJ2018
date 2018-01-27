@@ -29,12 +29,6 @@ public class Goal : Tile {
             waterPercentage = 0;
         }
     }
-
-    public override void startFilling()
-    {
-        //Increment the score of the owner of the goal.
-       
-    }
 }
 
 

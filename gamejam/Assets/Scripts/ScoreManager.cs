@@ -7,9 +7,19 @@ public class ScoreManager : MonoBehaviour {
 
     public GameObject Player1Water;
     public GameObject Player2Water;
+    private TileManager tileManager;
+
+    public GameObject p1Cursor;
+    public GameObject p2Cursor;
 
     private float playerOneScore;
     private float playerTwoScore;
+    private float lostWater;
+    public float MAXSCORE;
+    private bool gameStarted;
+    private bool scoreLoop;
+    private int displayScorep1;
+    private int displayScorep2;
 
     private float p1StartY;
     private RectTransform p1WaterTransform;
@@ -22,12 +32,41 @@ public class ScoreManager : MonoBehaviour {
         p1WaterTransform = Player1Water.GetComponent<RectTransform>();
         p2StartY = Player2Water.GetComponent<RectTransform>().position.y;
         p2WaterTransform = Player2Water.GetComponent<RectTransform>();
+        lostWater = 0;
+        gameStarted = false;
+        tileManager = FindObjectOfType<TileManager>();
+        if(tileManager == null)
+        {
+            throw new UnityException("Tile manager missing");
+        }
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+
+        if(!tileManager.stillFlowing())
+        {
+            if (playerTwoScore > 0)
+            {
+                playerTwoScore -= 0.01f;
+                p2WaterTransform.localScale = new Vector3(1, 400.0f * playerTwoScore / 5.0f, 1);
+                p2WaterTransform.position = new Vector3(p2WaterTransform.position.x, p2StartY + p2WaterTransform.lossyScale.y / 2, 0);
+                displayScorep2 += 1;
+            }
+            if (playerOneScore > 0)
+            {
+                playerOneScore -= 0.01f;
+                p1WaterTransform.localScale = new Vector3(1, 400.0f * playerOneScore / 5.0f, 1);
+                p1WaterTransform.position = new Vector3(p1WaterTransform.position.x, p1StartY + p1WaterTransform.lossyScale.y / 2, 0);
+                displayScorep1 += 1;
+            }
+            if (playerOneScore <= 0 && playerTwoScore <= 0)
+            {
+                scoreLoop = false;
+            }
+        }
 	}
 
     //Increments the score by passing a bool to indicate whether the score is for player one.
@@ -46,6 +85,27 @@ public class ScoreManager : MonoBehaviour {
             p2WaterTransform.localScale = new Vector3(1, 400.0f * playerTwoScore / 5.0f, 1);
             p2WaterTransform.position = new Vector3(p2WaterTransform.position.x, p2StartY + p2WaterTransform.lossyScale.y / 2, 0);
         }
+    }
+
+    public bool getGameStarted()
+    {
+        return gameStarted;
+    }
+
+    public void addLostWater(float waterLost)
+    {
+        lostWater += waterLost;
+    }
+
+    public void endGame()
+    {
+        //Stop the game
+        p1Cursor.SetActive(false);
+        p2Cursor.SetActive(false);
+
+        //Calculate scores by draining the water
+        scoreLoop = true;
+       
     }
 
 }

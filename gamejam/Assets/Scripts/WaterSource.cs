@@ -29,9 +29,4 @@ public class WaterSource : Tile {
             }
         }
 	}
-
-    public override void startFilling()
-    {
-        return;
-    }
 }

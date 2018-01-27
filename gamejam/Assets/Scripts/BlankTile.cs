@@ -8,22 +8,12 @@ public class BlankTile : Tile {
 
     public override void startTile()
     {
-        colourChange = false;
         waterPercentage = 0;
     }
 
     // Update is called once per frame
     public override void updateTile()
     {
-
-        if(waterPercentage >= 1)
-        {
-            waterPercentage = 0.0f;
-        }
-    }
-
-    public override void startFilling()
-    {
-        Debug.Log("Water overflowing");
+        waterPercentage = 0;
     }
 }

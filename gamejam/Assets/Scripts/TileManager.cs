@@ -10,6 +10,15 @@ public class TileManager : MonoBehaviour
     //Private variables
     private List<Tile> tileList;
 
+     public bool stillFlowing()
+    {
+        foreach(Tile t in tileList)
+        {
+            if (t != null && t.isFlowing())
+                return true;
+        }
+        return false;
+    }
 
     //allows initializing on first use, as late as possible.
     private void init()

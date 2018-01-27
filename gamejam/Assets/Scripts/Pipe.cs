@@ -5,13 +5,9 @@ using UnityEngine;
 
 public class Pipe : Tile {
 
-    //Private variables
-    private bool hasBeenFilled;
-
     // Use this for initialization
     public override void startTile ()
     {
-        hasBeenFilled = false;
         waterPercentage = 0;
 	}
 
@@ -26,7 +22,7 @@ public class Pipe : Tile {
 
         if (waterPercentage < 1 && waterPercentage > 0)
         {
-            //Check to see if there is no water in the source, in whcih case it needs to push the water.
+            //Check to see if there is no water in the source, in which case it needs to push the water.
             if (upSource)
             {
                 if (tileManager.getTile(x, y + 1).getWaterPercentage() <= 0.0f)
@@ -58,7 +54,6 @@ public class Pipe : Tile {
         }
         else if(waterPercentage >= 1)
         {
-            hasBeenFilled = true;
             propogateWater();
         }
     }
@@ -79,9 +74,5 @@ public class Pipe : Tile {
         left = down;
         down = right;
         right = tempUp;
-    }
-
-    public override void startFilling()
-    {
     }
 }

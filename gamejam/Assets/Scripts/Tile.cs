@@ -22,6 +22,8 @@ public abstract class Tile : MonoBehaviour
     protected TileManager tileManager;
     protected ScoreManager scoreManager;
     protected float waterPercentage;
+    private float prevWaterPercentage;
+    private int endGameChecker;
 
     void Start()
     {
@@ -37,6 +39,19 @@ public abstract class Tile : MonoBehaviour
     void FixedUpdate()
     {
         updateTile();
+     
+        prevWaterPercentage = waterPercentage;
+
+    }
+
+    public bool isFlowing()
+    {
+        Debug.Log(waterPercentage);
+        if(prevWaterPercentage == waterPercentage)
+        {
+            return true;
+        }
+        return false;
     }
 
     public bool getPipeDir(Direction dir)
@@ -171,5 +186,5 @@ public abstract class Tile : MonoBehaviour
 
     public abstract void startTile();
     public abstract void updateTile();
-    public abstract void startFilling();
+
 }
