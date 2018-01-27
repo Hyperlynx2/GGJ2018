@@ -15,12 +15,19 @@ public class Cursor: MonoBehaviour
     public string selectPipe2Button;
     public string selectPipe3Button;
     public string selectPipe4Button;
+    public float inputDelayTime;
+
+    private float inputDelayX;   //Variable used to ensure joystick inputs don't scroll crazy fast
+    private float inputDelayY;
 
     private PipeSelection m_pipeSelection;
     private TileManager m_tileManager;
 
     void Start ()
     {
+        inputDelayX = 0;
+        inputDelayY = 0;
+
         m_pipeSelection = GetComponent<PipeSelection>();
         if (m_pipeSelection == null)
             throw new UnityException("Missing PipeSelection on this object!");
@@ -35,6 +42,10 @@ public class Cursor: MonoBehaviour
         float newX = transform.position.x;
         float newY = transform.position.y;
 
+        inputDelayX -= Time.deltaTime;
+        inputDelayY -= Time.deltaTime;
+
+        //Button Inputs
         if (Input.GetButtonDown(leftButton))
         {
             newX--;
@@ -51,6 +62,36 @@ public class Cursor: MonoBehaviour
         else if (Input.GetButtonDown(upButton))
         {
             newY++;
+        }
+
+        //Axis Inputs
+        //Horizontal movement
+        if (inputDelayX <= 0)
+        {
+            if (Input.GetAxis("Player1Horizontal") > 0)
+            {
+                newX++;
+                inputDelayX = inputDelayTime;
+            }
+            else if (Input.GetAxis("Player1Horizontal") < 0)
+            {
+                newX--;
+                inputDelayX = inputDelayTime;
+            }
+        }
+        if(inputDelayY <= 0)
+        { 
+            //Vertical movement
+            if (Input.GetAxis("Player1Vertical") > 0)
+            {
+                newY++;
+                inputDelayY = inputDelayTime;
+            }
+            else if (Input.GetAxis("Player1Vertical") < 0)
+            {
+                newY--;
+                inputDelayY = inputDelayTime;
+            }
         }
 
         if (m_tileManager.isTileInPlay(newX, newY)

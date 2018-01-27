@@ -7315,6 +7315,7 @@ MonoBehaviour:
   selectPipe2Button: Player1Pipe2
   selectPipe3Button: Player1Pipe3
   selectPipe4Button: Player1Pipe4
+  inputDelayTime: 0.2
 --- !u!212 &1025083869
 SpriteRenderer:
   m_ObjectHideFlags: 0
