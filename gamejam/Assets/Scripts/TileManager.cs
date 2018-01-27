@@ -36,13 +36,9 @@ public class TileManager : MonoBehaviour
     public void setTile(Tile tile, int x, int y)
     {
         init();
-        if (tileList[y * width + x] != null)
+        if (tileList[y * width + x] != null && tile is BlankTile)
         {
-            if (tileList[y * width + x].GetComponents<BlankTile>() != null)
-            {
-                tileList[y * width + x] = null;
-                tileList[y * width + x] = tile;
-            }
+            return;
         }
         else
         {

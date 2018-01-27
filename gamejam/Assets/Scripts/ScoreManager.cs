@@ -44,7 +44,7 @@ public class ScoreManager : MonoBehaviour {
         {
             playerTwoScore += scoreIncrement;
             p2WaterTransform.localScale = new Vector3(1, 400.0f * playerTwoScore / 5.0f, 1);
-            p2WaterTransform.position = new Vector3(p1WaterTransform.position.x, p2StartY + p2WaterTransform.lossyScale.y / 2, 0);
+            p2WaterTransform.position = new Vector3(p2WaterTransform.position.x, p2StartY + p2WaterTransform.lossyScale.y / 2, 0);
         }
     }
 

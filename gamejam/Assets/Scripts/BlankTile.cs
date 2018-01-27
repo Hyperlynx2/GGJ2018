@@ -15,6 +15,7 @@ public class BlankTile : Tile {
     // Update is called once per frame
     public override void updateTile()
     {
+
         if(waterPercentage >= 1)
         {
             waterPercentage = 0.0f;
