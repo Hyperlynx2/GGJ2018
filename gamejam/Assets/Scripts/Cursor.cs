@@ -142,7 +142,7 @@ public class Cursor: MonoBehaviour
 
             //USE THIS FOR PLACE PIPE SOUND EFFECT
 
-           // audioManager.playOnce(placePipe);
+            audioManager.playOneOfTheseOnce(pipePlacingSounds, 0.4f);
 
             m_pipeSelection.newChoice(pipeChoiceIndex);
         }

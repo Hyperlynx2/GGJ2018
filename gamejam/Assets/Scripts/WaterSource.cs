@@ -13,11 +13,14 @@ public class WaterSource : Tile {
     public AudioClip startFillingSound;
     public AudioClip countDownSound;
 
+    private bool soundBool;
+
     // Use this for initialization
     public override void startTile ()
     {
         countdownTimer = timeTilStart;
         waterPercentage = 5;
+        soundBool = true;
     }
 	
 	// Update is called once per frame
@@ -25,11 +28,20 @@ public class WaterSource : Tile {
     {
 
         checkForPipes();
-
+       
         countdownTimer -= Time.deltaTime;
-        if (countdownTimer <= 0)
+
+        if(countdownTimer <= 3)
         {
-            AudioManager.getInstance().playOnce(startFillingSound);
+            if (soundBool)
+            {
+                AudioManager.getInstance().playOnce(startFillingSound);
+                soundBool = false;
+            }
+        }
+
+        if (countdownTimer <= 0)
+        {                
             if (waterPercentage > 0)
             {
                 propogateWater();

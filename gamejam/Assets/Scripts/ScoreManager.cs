@@ -44,6 +44,7 @@ public class ScoreManager : MonoBehaviour {
     public AudioClip p1Wins;
     public AudioClip p2Wins;
     public AudioClip BGM;
+    public AudioClip waterDraining;
 
     private bool soundbool;
 
@@ -133,6 +134,12 @@ public class ScoreManager : MonoBehaviour {
         p2ScoreText.SetActive(true);
 
         //Calculate scores by draining the water
+        if (soundbool)
+        {
+            AudioManager.getInstance().stop(BGM);
+            AudioManager.getInstance().play(waterDraining);
+            soundbool = false;
+        }
         if (playerTwoScore > 0)
         {
             playerTwoScore -= 0.005f;
@@ -151,6 +158,8 @@ public class ScoreManager : MonoBehaviour {
         }
         if (playerOneScore <= 0 && playerTwoScore <= 0)
         {
+            soundbool = true;
+            AudioManager.getInstance().stop(waterDraining);
             if(delayTimer > 2)
             {
                 gameState = GameState.gameOver;
@@ -166,7 +175,7 @@ public class ScoreManager : MonoBehaviour {
 
     private void calculateWinner()
     {
-        if(displayScorep1 > displayScorep2)
+        if (displayScorep1 > displayScorep2)
         {
             //p1 wins
             winText.SetActive(true);
