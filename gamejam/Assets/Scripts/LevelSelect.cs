@@ -27,6 +27,6 @@ public class LevelSelect : MonoBehaviour {
 	
 	//Called when button clicked.
 	void TaskOnClick (string scenename) {
-        SceneManager.LoadScene(scenename);
+        SceneManager.LoadScene(scenename, LoadSceneMode.Single);
 	}
 }
