@@ -10,8 +10,11 @@ public class WaterSource : Tile {
     //Private variables
     private float countdownTimer;
 
-	// Use this for initialization
-	public override void startTile ()
+    public AudioClip startFillingSound;
+    public AudioClip countDownSound;
+
+    // Use this for initialization
+    public override void startTile ()
     {
         countdownTimer = timeTilStart;
         waterPercentage = 5;
@@ -26,7 +29,8 @@ public class WaterSource : Tile {
         countdownTimer -= Time.deltaTime;
         if (countdownTimer <= 0)
         {
-            if(waterPercentage > 0)
+            AudioManager.getInstance().playOnce(startFillingSound);
+            if (waterPercentage > 0)
             {
                 propogateWater();
                 if(!up && !down && ! left && !right)
