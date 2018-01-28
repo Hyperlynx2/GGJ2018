@@ -52,8 +52,8 @@ public class PipeSelection : MonoBehaviour
     private System.Random random;
 
     // So that we use the same random selection for both players. 
-    //private static int s_randomSeed = new System.Random().Next();
-    private static int s_randomSeed = 2; //use a fixed value while debugging.
+    private static int s_randomSeed = new System.Random().Next();
+   // private static int s_randomSeed = 2; //use a fixed value while debugging.
 
     // Use this for initialization
     void Start ()

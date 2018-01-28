@@ -62,3 +62,4 @@ MonoBehaviour:
   MAXSCORE: 0
   p1Wins: {fileID: 8300000, guid: 3c3bdcb448042d546ac960f101238099, type: 3}
   p2Wins: {fileID: 8300000, guid: d634c181b2ad89643a6fbe5e1c0d5a31, type: 3}
+  BGM: {fileID: 8300000, guid: 07a3e2428d1d5fd42b44452803430d4b, type: 3}

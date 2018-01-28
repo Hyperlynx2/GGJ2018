@@ -22,6 +22,8 @@ public class Cursor: MonoBehaviour
     private float stickDelayX;   //Variable used to ensure joystick inputs don't scroll crazy fast
     private float stickDelayY;
 
+    private AudioManager audioManager;
+
     private PipeSelection m_pipeSelection;
     private TileManager m_tileManager;
 
@@ -29,6 +31,8 @@ public class Cursor: MonoBehaviour
     {
         stickDelayX = 0;
         stickDelayY = 0;
+
+        audioManager = FindObjectOfType<AudioManager>();
 
         m_pipeSelection = GetComponent<PipeSelection>();
         if (m_pipeSelection == null)
@@ -134,6 +138,11 @@ public class Cursor: MonoBehaviour
                 throw new UnityException("Missing pipe prefab for choice " + pipeChoiceIndex);
 
             newPipe.transform.position = transform.position;
+
+
+            //USE THIS FOR PLACE PIPE SOUND EFFECT
+
+           // audioManager.playOnce(placePipe);
 
             m_pipeSelection.newChoice(pipeChoiceIndex);
         }

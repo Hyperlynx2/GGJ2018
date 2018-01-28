@@ -32,7 +32,7 @@ public class AudioManager : MonoBehaviour
                 source.clip = sound;
                 _sources.Add(sound.name, source);
             }
-
+            
             source.Play();
         }
     }

@@ -43,11 +43,13 @@ public class ScoreManager : MonoBehaviour {
 
     public AudioClip p1Wins;
     public AudioClip p2Wins;
+    public AudioClip BGM;
 
     private bool soundbool;
 
     // Use this for initialization
     void Start () {
+        AudioManager.getInstance().play(BGM);
         p1StartY = Player1Water.GetComponent<RectTransform>().position.y;
         p1WaterTransform = Player1Water.GetComponent<RectTransform>();
         p2StartY = Player2Water.GetComponent<RectTransform>().position.y;
