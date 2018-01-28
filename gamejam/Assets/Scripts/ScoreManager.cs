@@ -41,6 +41,9 @@ public class ScoreManager : MonoBehaviour {
 
     private float delayTimer;
 
+    public AudioClip p1Wins;
+    public AudioClip p2Wins;
+
     // Use this for initialization
     void Start () {
         p1StartY = Player1Water.GetComponent<RectTransform>().position.y;
@@ -55,7 +58,6 @@ public class ScoreManager : MonoBehaviour {
         {
             throw new UnityException("Tile manager missing");
         }
-
     }
 	
 	// Update is called once per frame
@@ -168,6 +170,7 @@ public class ScoreManager : MonoBehaviour {
             {
                 p1ScoreText.transform.localScale += new Vector3(0.05f, 0.05f, 0);
             }
+            
 
         }
         else if (displayScorep2 > displayScorep1)
@@ -179,6 +182,7 @@ public class ScoreManager : MonoBehaviour {
             {
                 p2ScoreText.transform.localScale += new Vector3(0.05f, 0.05f, 0);
             }
+            AudioManager.getInstance().playOnce(p2Wins);
         }
         else
         {
