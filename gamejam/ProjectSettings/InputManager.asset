@@ -218,7 +218,7 @@ InputManager:
     descriptiveName: P2 pipe1
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: u
+    positiveButton: i
     altNegativeButton: 
     altPositiveButton: joystick 2 button 3
     gravity: 3
@@ -250,7 +250,7 @@ InputManager:
     descriptiveName: P2 pipe2
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: i
+    positiveButton: l
     altNegativeButton: 
     altPositiveButton: joystick 2 button 1
     gravity: 3
@@ -282,7 +282,7 @@ InputManager:
     descriptiveName: P2 pipe3
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: o
+    positiveButton: k
     altNegativeButton: 
     altPositiveButton: joystick 2 button 0
     gravity: 3
@@ -314,7 +314,7 @@ InputManager:
     descriptiveName: P2 pipe4
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: r
+    positiveButton: j
     altNegativeButton: 
     altPositiveButton: joystick 2 button 2
     gravity: 3
