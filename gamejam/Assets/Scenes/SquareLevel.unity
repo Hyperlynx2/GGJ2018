@@ -501,6 +501,11 @@ Prefab:
       propertyPath: startFillingSound
       value: 
       objectReference: {fileID: 8300000, guid: 9366e619703fef640a695387f9211780, type: 3}
+    - target: {fileID: 114822278889263838, guid: 6b8e93f328d76bf468e2656daeed35f9,
+        type: 2}
+      propertyPath: up
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b8e93f328d76bf468e2656daeed35f9, type: 2}
   m_IsPrefabParent: 0
@@ -4306,6 +4311,16 @@ Prefab:
       propertyPath: pipeSprites.Array.data[3]
       value: 
       objectReference: {fileID: 495169158}
+    - target: {fileID: 114938095599722698, guid: 2379b806f87d4b0459562a9e6c4cf3c6,
+        type: 2}
+      propertyPath: pipePrefabs.Array.data[5].spawnChance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114938095599722698, guid: 2379b806f87d4b0459562a9e6c4cf3c6,
+        type: 2}
+      propertyPath: pipePrefabs.Array.data[6].spawnChance
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2379b806f87d4b0459562a9e6c4cf3c6, type: 2}
   m_IsPrefabParent: 0
@@ -4489,9 +4504,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114208479783845616, guid: 1322347a3305b704a8e8e32d1d75a325,
         type: 2}
-      propertyPath: pipeSprites.Array.data[3]
+      propertyPath: pipeSprites.Array.data[0]
       value: 
-      objectReference: {fileID: 1751479251}
+      objectReference: {fileID: 836468671}
     - target: {fileID: 114208479783845616, guid: 1322347a3305b704a8e8e32d1d75a325,
         type: 2}
       propertyPath: pipeSprites.Array.data[1]
@@ -4499,14 +4514,24 @@ Prefab:
       objectReference: {fileID: 1821528395}
     - target: {fileID: 114208479783845616, guid: 1322347a3305b704a8e8e32d1d75a325,
         type: 2}
-      propertyPath: pipeSprites.Array.data[0]
-      value: 
-      objectReference: {fileID: 836468671}
-    - target: {fileID: 114208479783845616, guid: 1322347a3305b704a8e8e32d1d75a325,
-        type: 2}
       propertyPath: pipeSprites.Array.data[2]
       value: 
       objectReference: {fileID: 2139189367}
+    - target: {fileID: 114208479783845616, guid: 1322347a3305b704a8e8e32d1d75a325,
+        type: 2}
+      propertyPath: pipeSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 1751479251}
+    - target: {fileID: 114208479783845616, guid: 1322347a3305b704a8e8e32d1d75a325,
+        type: 2}
+      propertyPath: pipePrefabs.Array.data[5].spawnChance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208479783845616, guid: 1322347a3305b704a8e8e32d1d75a325,
+        type: 2}
+      propertyPath: pipePrefabs.Array.data[6].spawnChance
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1322347a3305b704a8e8e32d1d75a325, type: 2}
   m_IsPrefabParent: 0
@@ -7756,6 +7781,10 @@ Prefab:
     - target: {fileID: 4946727011935828, guid: e81e548eb78442040a47c49003bd1c6d, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414716024258948, guid: e81e548eb78442040a47c49003bd1c6d, type: 2}
+      propertyPath: m_Name
+      value: ScoreManager
       objectReference: {fileID: 0}
     - target: {fileID: 114267747780302030, guid: e81e548eb78442040a47c49003bd1c6d,
         type: 2}

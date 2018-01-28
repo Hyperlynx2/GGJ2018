@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1819546496423642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 6, z: 0}
+  m_LocalPosition: {x: 15, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -64,6 +64,10 @@ MonoBehaviour:
   horizontalAxis: Player2Horizontal
   verticalAxis: Player2Vertical
   inputDelayTime: 0.2
+  pipePlacingSounds:
+  - {fileID: 8300000, guid: f39f2dfab3e62984e988bb67f330e2d6, type: 3}
+  - {fileID: 8300000, guid: d7307d9f3cfa49e4ba731fd30b80da8d, type: 3}
+  - {fileID: 8300000, guid: 265725d9af2a0db4fbfd0670360e35cf, type: 3}
 --- !u!114 &114208479783845616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -81,22 +85,22 @@ MonoBehaviour:
     spawnChance: 1
   - pipePrefab: {fileID: 1403479838196258, guid: a1aa86325691fff48a10bdb1e510708d,
       type: 2}
-    spawnChance: 10
+    spawnChance: 5
   - pipePrefab: {fileID: 1730366700911558, guid: 264fc8b9fb2b1574fb3325e6906c3147,
       type: 2}
-    spawnChance: 10
+    spawnChance: 5
   - pipePrefab: {fileID: 1077909824965474, guid: eb4839e8abecf5749847286805747b3e,
       type: 2}
-    spawnChance: 10
+    spawnChance: 5
   - pipePrefab: {fileID: 1225214131862006, guid: 8a895621be1a4f347b842d6d381c6ece,
       type: 2}
-    spawnChance: 10
+    spawnChance: 5
   - pipePrefab: {fileID: 1862573646799318, guid: f907561d20b039a4f9342f96157d85e9,
       type: 2}
-    spawnChance: 10
+    spawnChance: 5
   - pipePrefab: {fileID: 1640139815480570, guid: 054cce6ac5d334347ba09ae0beb8540c,
       type: 2}
-    spawnChance: 10
+    spawnChance: 5
   - pipePrefab: {fileID: 1205312729546170, guid: a319dde0a66e77b4f8a7598af1ba2eb8,
       type: 2}
     spawnChance: 3
