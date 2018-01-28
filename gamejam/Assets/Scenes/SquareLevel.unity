@@ -1318,6 +1318,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d3963110eea69d48a088e47a9c0a4ac, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &351605904
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4703375998449712, guid: a1c9aecbda38389449cb68bcea2c90c5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 174.45364
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703375998449712, guid: a1c9aecbda38389449cb68bcea2c90c5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 120.10397
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703375998449712, guid: a1c9aecbda38389449cb68bcea2c90c5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703375998449712, guid: a1c9aecbda38389449cb68bcea2c90c5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703375998449712, guid: a1c9aecbda38389449cb68bcea2c90c5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703375998449712, guid: a1c9aecbda38389449cb68bcea2c90c5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703375998449712, guid: a1c9aecbda38389449cb68bcea2c90c5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703375998449712, guid: a1c9aecbda38389449cb68bcea2c90c5, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a1c9aecbda38389449cb68bcea2c90c5, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &362614065 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4695528292621380, guid: 1d3963110eea69d48a088e47a9c0a4ac,
