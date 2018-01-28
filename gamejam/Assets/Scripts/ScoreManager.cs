@@ -212,6 +212,12 @@ public class ScoreManager : MonoBehaviour {
         {
             //Draw
         }
+
+        if (Input.anyKey)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("levelSelect", 
+                UnityEngine.SceneManagement.LoadSceneMode.Single);
+        }
     }
 
 }
