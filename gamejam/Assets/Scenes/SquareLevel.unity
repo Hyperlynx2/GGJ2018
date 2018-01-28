@@ -7752,10 +7752,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 1414716024258948, guid: e81e548eb78442040a47c49003bd1c6d, type: 2}
-      propertyPath: m_Name
-      value: ScoreManager
-      objectReference: {fileID: 0}
     - target: {fileID: 114267747780302030, guid: e81e548eb78442040a47c49003bd1c6d,
         type: 2}
       propertyPath: Player1Water
@@ -7796,6 +7792,10 @@ Prefab:
       propertyPath: winText
       value: 
       objectReference: {fileID: 400482869}
+    - target: {fileID: 1414716024258948, guid: e81e548eb78442040a47c49003bd1c6d, type: 2}
+      propertyPath: m_Name
+      value: ScoreManager
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e81e548eb78442040a47c49003bd1c6d, type: 2}
   m_IsPrefabParent: 0

@@ -49,7 +49,7 @@ public class ScoreManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        AudioManager.getInstance().play(BGM);
+        AudioManager.getInstance().play(BGM, 0.5f);
         p1StartY = Player1Water.GetComponent<RectTransform>().position.y;
         p1WaterTransform = Player1Water.GetComponent<RectTransform>();
         p2StartY = Player2Water.GetComponent<RectTransform>().position.y;

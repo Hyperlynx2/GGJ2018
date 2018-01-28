@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void play(AudioClip sound)
+    public void play(AudioClip sound, float volume = 1.0f)
     {
         if (sound != null && !_sources.ContainsKey(sound.name))
         {
@@ -46,7 +46,7 @@ public class AudioManager : MonoBehaviour
             source.clip = sound;
             source.loop = true;
             source.playOnAwake = false;
-
+            source.volume = volume;
             source.Play();
 
             _sources.Add(sound.name, source);
