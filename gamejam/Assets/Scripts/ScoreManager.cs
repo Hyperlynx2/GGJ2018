@@ -44,6 +44,8 @@ public class ScoreManager : MonoBehaviour {
     public AudioClip p1Wins;
     public AudioClip p2Wins;
 
+    private bool soundbool;
+
     // Use this for initialization
     void Start () {
         p1StartY = Player1Water.GetComponent<RectTransform>().position.y;
@@ -54,6 +56,7 @@ public class ScoreManager : MonoBehaviour {
         gameState = GameState.countdown;
         countdown = FindObjectOfType<Countdown>();
         tileManager = FindObjectOfType<TileManager>();
+        soundbool = true;
         if(tileManager == null)
         {
             throw new UnityException("Tile manager missing");
@@ -170,7 +173,13 @@ public class ScoreManager : MonoBehaviour {
             {
                 p1ScoreText.transform.localScale += new Vector3(0.05f, 0.05f, 0);
             }
-            
+         
+            if(soundbool)
+            {
+                AudioManager.getInstance().playOnce(p1Wins);
+                soundbool = false;
+            }
+ 
 
         }
         else if (displayScorep2 > displayScorep1)
@@ -182,7 +191,11 @@ public class ScoreManager : MonoBehaviour {
             {
                 p2ScoreText.transform.localScale += new Vector3(0.05f, 0.05f, 0);
             }
-            AudioManager.getInstance().playOnce(p2Wins);
+            if (soundbool)
+            {
+                AudioManager.getInstance().playOnce(p2Wins);
+                soundbool = false;
+            }
         }
         else
         {
