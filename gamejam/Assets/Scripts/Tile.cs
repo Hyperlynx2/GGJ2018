@@ -63,11 +63,6 @@ public abstract class Tile : MonoBehaviour
 
     public bool isFlowing()
     {
-        /*if(prevWaterPercentage == waterPercentage)
-        {
-            return false;
-        }
-        return true;*/
         return Flowing;
     }
 

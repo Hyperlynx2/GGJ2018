@@ -14,7 +14,7 @@ public class TileManager : MonoBehaviour
     {
         foreach(Tile t in tileList)
         {
-            if (t != null && t is Pipe)
+            if (t != null && (t is Pipe || t is WaterSource))
                 if(t.isFlowing())
                     return true;
         }

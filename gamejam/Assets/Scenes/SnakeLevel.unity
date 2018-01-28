@@ -1293,7 +1293,7 @@ Prefab:
     - target: {fileID: 114822278889263838, guid: 6b8e93f328d76bf468e2656daeed35f9,
         type: 2}
       propertyPath: down
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114822278889263838, guid: 6b8e93f328d76bf468e2656daeed35f9,
         type: 2}
@@ -1309,6 +1309,11 @@ Prefab:
         type: 2}
       propertyPath: timeTilStart
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114822278889263838, guid: 6b8e93f328d76bf468e2656daeed35f9,
+        type: 2}
+      propertyPath: up
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b8e93f328d76bf468e2656daeed35f9, type: 2}
