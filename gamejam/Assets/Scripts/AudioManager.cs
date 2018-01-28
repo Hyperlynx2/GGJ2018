@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager getInstance() { return _instance; }
 
+    private System.Random _randomiser = new System.Random();
+
     void Awake()
     {
         if (_instance != null)
@@ -33,9 +35,19 @@ public class AudioManager : MonoBehaviour
                 source.volume = volume;
                 _sources.Add(sound.name, source);
             }
-            
             source.Play();
         }
+    }
+
+    public void playOneOfTheseOnce(AudioClip[] sounds, float volume = 1.0f)
+    {
+        if (sounds.Length == 0)
+            throw new UnityException("No sounds");
+
+        int playThisOne = _randomiser.Next(0, sounds.Length - 1);
+
+        playOnce(sounds[playThisOne], volume);
+
     }
 
     public void play(AudioClip sound, float volume = 1.0f)
@@ -47,6 +59,7 @@ public class AudioManager : MonoBehaviour
             source.loop = true;
             source.playOnAwake = false;
             source.volume = volume;
+
             source.Play();
 
             _sources.Add(sound.name, source);
