@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
         _instance = this;
     }
 
-    public void playOnce(AudioClip sound)
+    public void playOnce(AudioClip sound, float volume = 1.0f)
     {
         if (sound != null)
         {
@@ -30,6 +30,7 @@ public class AudioManager : MonoBehaviour
                 source.playOnAwake = false;
                 source.loop = false;
                 source.clip = sound;
+                source.volume = volume;
                 _sources.Add(sound.name, source);
             }
             
