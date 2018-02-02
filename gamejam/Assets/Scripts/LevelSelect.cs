@@ -29,4 +29,13 @@ public class LevelSelect : MonoBehaviour {
 	void TaskOnClick (string scenename) {
         SceneManager.LoadScene(scenename, LoadSceneMode.Single);
 	}
+
+    void Delete()
+    {
+        foreach (levelButton lb in levels)
+        {
+            if (lb.button.GetComponent<Button>() != null)
+                lb.button.GetComponent<Button>().onClick.RemoveAllListeners();
+        }
+    }
 }

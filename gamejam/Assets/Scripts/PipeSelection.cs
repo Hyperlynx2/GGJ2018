@@ -33,7 +33,7 @@ public class PipeSelection : MonoBehaviour
         {
             totalWeight += p.spawnChance;
         }
-        int randomNum = random.Next(0, totalWeight + 1);
+        int randomNum = random.Next(0, totalWeight);
         int counter = 0;
         for (int i = 0; i < pipePrefabs.Length; i++)
         {
