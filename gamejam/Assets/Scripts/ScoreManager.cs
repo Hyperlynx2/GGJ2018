@@ -13,6 +13,8 @@ public class ScoreManager : MonoBehaviour {
     public GameObject Player1Water;
     public GameObject Player2Water;
 
+    public GameObject endGameMenu;
+
     private TileManager tileManager;
     private Countdown countdown;
 
@@ -98,6 +100,7 @@ public class ScoreManager : MonoBehaviour {
             case GameState.gameOver:
                 //Who wins???
                 calculateWinner();
+                endGameMenu.SetActive(true);
                 break;
         }   
 	}
@@ -213,11 +216,7 @@ public class ScoreManager : MonoBehaviour {
             //Draw
         }
 
-        if (Input.anyKey)
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("levelSelect", 
-                UnityEngine.SceneManagement.LoadSceneMode.Single);
-        }
+
     }
 
 }
