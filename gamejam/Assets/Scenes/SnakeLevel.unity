@@ -1312,6 +1312,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b8e93f328d76bf468e2656daeed35f9, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &756807307 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1747420173674500, guid: 986077ae43b1c7240969d491c9e91026,
+    type: 2}
+  m_PrefabInternal: {fileID: 1845263090}
 --- !u!4 &757561327 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4695528292621380, guid: 1d3963110eea69d48a088e47a9c0a4ac,
@@ -3207,6 +3212,16 @@ Prefab:
       propertyPath: m_Name
       value: ScoreManager
       objectReference: {fileID: 0}
+    - target: {fileID: 114267747780302030, guid: e81e548eb78442040a47c49003bd1c6d,
+        type: 2}
+      propertyPath: waterDraining
+      value: 
+      objectReference: {fileID: 8300000, guid: 4fc5256d5321a89418c0b2d4e8f279f5, type: 3}
+    - target: {fileID: 114267747780302030, guid: e81e548eb78442040a47c49003bd1c6d,
+        type: 2}
+      propertyPath: endGameMenu
+      value: 
+      objectReference: {fileID: 756807307}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e81e548eb78442040a47c49003bd1c6d, type: 2}
   m_IsPrefabParent: 0
@@ -4113,7 +4128,7 @@ Prefab:
     - target: {fileID: 224655513937857204, guid: 986077ae43b1c7240969d491c9e91026,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -133
       objectReference: {fileID: 0}
     - target: {fileID: 224655513937857204, guid: 986077ae43b1c7240969d491c9e91026,
         type: 2}

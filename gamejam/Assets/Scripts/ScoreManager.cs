@@ -69,7 +69,7 @@ public class ScoreManager : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
         switch(gameState)
         {
@@ -149,7 +149,7 @@ public class ScoreManager : MonoBehaviour {
             p2WaterTransform.localScale = new Vector3(1, 400.0f * playerTwoScore / 5.0f, 1);
             p2WaterTransform.position = new Vector3(p2WaterTransform.position.x, p2StartY + p2WaterTransform.lossyScale.y / 2, 0);
             displayScorep2 += 1;
-            p2ScoreText.GetComponent<Text>().text = displayScorep1.ToString();
+            p2ScoreText.GetComponent<Text>().text = displayScorep2.ToString();
         }
         if (playerOneScore > 0)
         {

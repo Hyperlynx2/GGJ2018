@@ -42,9 +42,11 @@ public class Cursor: MonoBehaviour
         if(m_tileManager == null)
             throw new UnityException("Missing TileManager!");
     }
-	
+
 	void Update ()
     {        
+        
+
         float newX = transform.position.x;
         float newY = transform.position.y;
 
